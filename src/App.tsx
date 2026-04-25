@@ -39,8 +39,9 @@ function extensionForOutput(family: string): string {
   const n = family.toLowerCase();
   if (n.includes("ipl")) return "ipl";
   if (n.includes("csv")) return "csv";
-  if (n.includes("mta")) return "map";
+  // Lua check must come before MTA — "MTA 1.x createObject (Lua)" mentions both.
   if (n.includes("lua")) return "lua";
+  if (n.includes("mta")) return "map";
   return "pwn";
 }
 
@@ -389,6 +390,15 @@ function App() {
             </RadixLink>{" "}— there's a Docker image with the same converter.
           </Callout.Text>
         </Callout.Root>
+
+        <Flex justify="center" mt="2">
+          <Text size="1" color="gray">
+            Powered by{" "}
+            <RadixLink href="https://vs-rp.org" target="_blank" rel="noopener noreferrer">
+              vs-rp.org
+            </RadixLink>
+          </Text>
+        </Flex>
       </Flex>
     </Container>
   );
